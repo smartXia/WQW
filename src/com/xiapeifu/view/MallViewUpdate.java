@@ -1,4 +1,4 @@
-package com.newland.shopping.view;
+package com.xiapeifu.view;
 
 import java.awt.GridLayout;
 import java.awt.Toolkit;
@@ -18,8 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import com.newland.shopping.bean.Mall;
-import com.newland.shopping.dao.BaseDao;
+import com.xiapeifu.bean.Mall;
+import com.xiapeifu.dao.BaseDao;
 
 /**
  * Â¼Èë½çÃæ

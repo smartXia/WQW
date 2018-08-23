@@ -1,4 +1,4 @@
-package com.newland.shopping.dao;
+package com.xiapeifu.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.newland.shopping.bean.Mall;
+import com.xiapeifu.bean.Mall;
 
 public class BaseDao {
 	private final static String DRIVER = "com.mysql.jdbc.Driver"; // ¶¨ÒåÇý¶¯×Ö·û´®

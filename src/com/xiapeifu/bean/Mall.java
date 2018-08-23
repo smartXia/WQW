@@ -1,4 +1,4 @@
-package com.newland.shopping.bean;
+package com.xiapeifu.bean;
 
 public class Mall {
 	String id;

@@ -1,4 +1,4 @@
-package com.newland.shopping.view;
+package com.xiapeifu.view;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -14,7 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import org.eclipse.wb.swing.FocusTraversalOnArray;
+import org.forwhat.FocusTraversalOnArray;
 
 public class MallView extends JFrame {
 	/**

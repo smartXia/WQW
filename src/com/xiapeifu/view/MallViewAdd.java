@@ -1,7 +1,6 @@
-package com.newland.shopping.view;
+package com.xiapeifu.view;
 
 import java.awt.GridLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,8 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-import com.newland.shopping.bean.Mall;
-import com.newland.shopping.dao.BaseDao;
+import com.xiapeifu.bean.Mall;
+import com.xiapeifu.dao.BaseDao;
+
+import java.awt.Toolkit;
 
 /**
  * 录入界面
@@ -28,144 +29,148 @@ import com.newland.shopping.dao.BaseDao;
  * 
  */
 
-public class MallViewDel extends JFrame {
+public class MallViewAdd extends JFrame {
 	// 定义子菜单
 	private JMenuItem save, update, getS, del;
 
 	// 定义输入文本框
-	private JTextField sid, sname, sprice, snumber, slocation;
+	private JTextField sid, sname,sdiscount,  sprice,slocation,snumber;
 
-	private JRadioButton sman, swoman; // 定义单选按钮（男，女）
+	private JRadioButton sman, swoman; // 定义单选按钮（shifou）
 
-	private JButton sele; // 定义查询按钮
+	private JButton ok, cance; // 定义按钮
 
-	public MallViewDel() {
+	public MallViewAdd() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewAdd.class.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
-		this.setTitle("超市管理系统-删除信息");
+		this.setTitle("超市管理系统-录入信息");
 		initMenu(); // 初始化菜单栏
 		// 初始化文本框
 		sid = new JTextField(20);
 		sname = new JTextField(20);
-		sname.setEditable(false);// 不可编辑
 		slocation = new JTextField(20);
-		slocation.setEditable(false);
+		sdiscount = new JTextField(20);
 		sprice = new JTextField(20);
-		sprice.setEditable(false);
 		snumber = new JTextField(20);
-		snumber.setEditable(false);
-		// 初始化单选按钮
+		// 初始化按钮
 		sman = new JRadioButton("是", true); // 默认选中
 		swoman = new JRadioButton("否", false);
 		ButtonGroup bg = new ButtonGroup(); // 定义按钮组
 		bg.add(sman);
 		bg.add(swoman);
-		sman.setEnabled(false); // 不可编辑
-		swoman.setEnabled(false);
 
-		sele = new JButton("删除"); // 初始化查询按钮
+		// 初始化按钮
+		ok = new JButton("录入");
+		cance = new JButton("重置");
 
-		this.getContentPane().setLayout(new GridLayout(7, 1)); // 设置6行1列网格布局管理器
+		this.getContentPane().setLayout(new GridLayout(7, 1)); // 设置7行1列网格布局管理器
 		JPanel p1 = new JPanel();
-		p1.add(new JLabel("输入要删除的编号："));
+		p1.add(new JLabel("\u7F16\u53F7\uFF1A"));
 		p1.add(sid);
-		p1.add(sele);
 		this.getContentPane().add(p1);
 
-
 		JPanel p2 = new JPanel();
-		p2.add(new JLabel("名称："));
+		p2.add(new JLabel("\u54C1\u540D\uFF1A"));
 		p2.add(sname);
 		this.getContentPane().add(p2);
 
 		JPanel p3 = new JPanel();
-		p3.add(new JLabel("是否折扣："));
+		p3.add(new JLabel("\u662F\u5426\u6298\u6263\uFF1A"));
 		p3.add(sman);
 		p3.add(swoman);
 		this.getContentPane().add(p3);
 
 		JPanel p4 = new JPanel();
-		p4.add(new JLabel("产地："));
+		p4.add(new JLabel("\u4EA7\u5730\uFF1A"));
 		p4.add(slocation);
 		this.getContentPane().add(p4);
 
 		JPanel p5 = new JPanel();
-		p5.add(new JLabel("价格："));
+		p5.add(new JLabel("\u4EF7\u683C\uFF1A"));
 		p5.add(sprice);
 		this.getContentPane().add(p5);
 
 		JPanel p6 = new JPanel();
-		p6.add(new JLabel("数量："));
+		p6.add(new JLabel("\u6570\u91CF\uFF1A"));
 		p6.add(snumber);
 		this.getContentPane().add(p6);
 
 		JPanel p7 = new JPanel();
+		p7.add(ok);
+		p7.add(cance);
 		this.getContentPane().add(p7);
-		this.getContentPane().add(p7);
-		
+
 		// 注册监听器
-		sele.addActionListener(new ActionListener() {
+		ok.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				String id=sid.getText().trim();
-				if (id.equals("")) {
-					JOptionPane.showMessageDialog(null, "请输入编号");
-					return;
-				}
-				
-				BaseDao pd = new BaseDao();
-				Mall mall = pd.getMall(id);
-				if (mall == null) {
-					JOptionPane.showMessageDialog(null, "不存在此编号的商品");
-
-					sname.setText("");					
-					slocation.setText("");
-					snumber.setText("");
-					sprice.setText("");
-					sman.setSelected(true);
-					return;
-				}
-				System.out.println(mall.toString());
-				sname.setText(mall.getName());
-				snumber.setText(mall.getnumber());
-				sprice.setText(mall.getPrice());
-				slocation.setText(mall.getnumber());
-
-				if (mall.getDiscount().equals("是")) {
-					sman.setSelected(true);
+				String sex = "";
+				String id = sid.getText().trim();
+				String name = sname.getText().trim();
+				String location = slocation.getText().trim();
+				String price = sprice.getText().trim();
+				String number = snumber.getText().trim();
+				if (sman.isSelected()) { // 如果按钮男被选中
+					sex = "是";
 				} else {
-					swoman.setSelected(true);
+					sex = "否";
 				}
 
-				
-				
-				int i=JOptionPane.showConfirmDialog(null, "确定要删除该编号及全部信息吗？");
-				if(i==0){
-					BaseDao sd = new BaseDao();
-					int j=sd.del(id);
-					if(j>0){
-						JOptionPane.showMessageDialog(null, "删除成功");
-					}else{
-						JOptionPane.showConfirmDialog(null, "删除失败");
-					}
+				if (id.equals("")) {
+					JOptionPane.showMessageDialog(null, "编号不能为空");
+					return;
+				}
+				if (name.equals("")) {
+					JOptionPane.showMessageDialog(null, "商品名不能为空");
+					return;
+				}
+				if (location.equals("")) {
+					JOptionPane.showMessageDialog(null, " 产地不能为空");
+					return;
+				}
+				if (price.equals("")) {
+					JOptionPane.showMessageDialog(null, "价格不能为空");
+					return;
+				}
+				if (number.equals("")) {
+					JOptionPane.showMessageDialog(null, "数量不能为空");
+					return;
 				}
 
+				Mall mall = new Mall(id, name, sex, location, price,
+						number);
+				BaseDao sd = new BaseDao();
+				int i = sd.add(mall);
+				if (i > 0) {
+					JOptionPane.showMessageDialog(null, "录入成功");
+				} else {
+					JOptionPane.showMessageDialog(null, "表主键重复");
+				}
+			}
+
+		});
+		cance.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				sid.setText("");
+				sname.setText("");
+				sprice.setText("");
+				slocation.setText("");
+				snumber.setText("");
+				sman.setSelected(true);
 			}
 
 		});
 
-		this.setBounds(300, 200, 570, 325); // 设置窗体位置和大小，可根据自己电脑屏幕情况来调整
+		this.setBounds(250, 150, 570, 325); // 设置窗体位置和大小，可根据自己电脑屏幕情况来调整
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE); // 关闭窗体事件
-//		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		this.setVisible(true);
 	}
-	
 
 	// 初始化菜单
 	public void initMenu() {
-		save = new JMenuItem("录入超市基本信息");
-		update = new JMenuItem("修改超市基本信息");
-		getS = new JMenuItem("查询超市基本信息");
-		del = new JMenuItem("删除超市基本信息");
+		save=new JMenuItem("录入超市基本信息");
+		update=new JMenuItem("修改超市基本信息");
+		getS=new JMenuItem("查询超市基本信息");
+		del=new JMenuItem("删除超市基本信息");
+		
 
 		JMenuBar menubar = new JMenuBar(); // 创建工具栏对象
 		JMenu menu = new JMenu("菜单选项"); // 创建菜单栏对象
