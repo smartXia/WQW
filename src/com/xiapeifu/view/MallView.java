@@ -36,7 +36,7 @@ public class MallView extends JFrame {
 		getContentPane().setForeground(Color.RED);
 		setBackground(Color.RED);
 		setFont(new Font("Dialog", Font.PLAIN, 18));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MallView.class.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MallView.class.getResource("/com/xiapeifu/images/shoppingmall.png")));
 		this.setTitle("\u5341\u91CC\u6625\u98CE\u4E0D\u5982\u4F60");
 		save=new JMenuItem("function1");
 		update=new JMenuItem("function1");
@@ -94,8 +94,9 @@ public class MallView extends JFrame {
 		getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setIcon(new ImageIcon(MallView.class.getResource("/com/newland/shopping/images/\u8D85\u5E02 (1).png")));
-		lblNewLabel_5.setBounds(171, 76, 246, 151);
+		lblNewLabel_5.setBackground(Color.WHITE);
+		lblNewLabel_5.setIcon(new ImageIcon(MallView.class.getResource("/com/xiapeifu/images/kaixin.png")));
+		lblNewLabel_5.setBounds(130, -34, 354, 330);
 		getContentPane().add(lblNewLabel_5);
 		setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{getContentPane(), menubar, menu, save, update, getS, del}));
 	}

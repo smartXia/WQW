@@ -41,7 +41,7 @@ public class MallViewAdd extends JFrame {
 	private JButton ok, cance; // 定义按钮
 
 	public MallViewAdd() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewAdd.class.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewAdd.class.getResource("/com/xiapeifu/images/mall.png")));
 		this.setTitle("超市管理系统-录入信息");
 		initMenu(); // 初始化菜单栏
 		// 初始化文本框

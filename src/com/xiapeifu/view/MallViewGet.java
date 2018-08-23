@@ -40,7 +40,7 @@ public class MallViewGet extends JFrame {
 	private JButton sele; // 定义查询按钮
 
 	public MallViewGet() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewAdd.class.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewGet.class.getResource("/com/xiapeifu/images/mall.png")));
 		this.setTitle("超市管理系统-查询信息");
 		initMenu(); // 初始化菜单栏
 		// 初始化文本框

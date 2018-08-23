@@ -42,11 +42,7 @@ public class MallViewUpdate extends JFrame {
 	private JButton updateButton; // 录入修改
 
 	public MallViewUpdate() {
-		setIconImage(Toolkit
-				.getDefaultToolkit()
-				.getImage(
-						MallViewAdd.class
-								.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewUpdate.class.getResource("/com/xiapeifu/images/mall.png")));
 		this.setTitle("超市管理系统-修改信息");
 		initMenu(); // 初始化菜单栏
 		// 初始化文本框

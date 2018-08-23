@@ -40,7 +40,7 @@ public class MallViewDel extends JFrame {
 	private JButton sele; // 定义查询按钮
 
 	public MallViewDel() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewAdd.class.getResource("/com/newland/shopping/images/\u8D85\u5E02.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MallViewDel.class.getResource("/com/xiapeifu/images/mall.png")));
 		this.setTitle("超市管理系统-删除信息");
 		initMenu(); // 初始化菜单栏
 		// 初始化文本框
